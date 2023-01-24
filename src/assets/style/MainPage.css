@@ -1,0 +1,17 @@
+body {
+  overflow-x: hidden;
+}
+.arrow_up {
+  animation: arrow_up 2s infinite;
+}
+@keyframes arrow_up {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

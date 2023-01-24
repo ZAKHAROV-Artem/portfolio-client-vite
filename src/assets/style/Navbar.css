@@ -1,0 +1,35 @@
+/* - - - Menu hover effect - - - */
+.menu_item {
+  position: relative;
+}
+.menu_item a {
+  text-decoration: none;
+  color: inherit;
+}
+.menu_item_text:after {
+  content: "";
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.5);
+  width: 50%;
+  height: 1px;
+  background-color: #7ea6f4;
+  opacity: 0;
+  transition: 0.25s;
+}
+.menu_item_text:hover {
+  background: transparent;
+  cursor: pointer;
+}
+.menu_item_text:hover:after {
+  top: 110%;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+.menu_item_text.active:after {
+  top: 110%;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
