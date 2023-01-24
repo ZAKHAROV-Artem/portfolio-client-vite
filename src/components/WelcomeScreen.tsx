@@ -45,7 +45,7 @@ const WelcomeScreen: FC = observer(() => {
           </Typography>
         </Box>
       </Parallax>
-      <Fade direction="right">
+      <Fade duration={1200}>
         <img
           src={
             app.mainPageData?.attributes.welcomeScreen.image.data.attributes.url
