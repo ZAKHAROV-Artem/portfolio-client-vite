@@ -1,6 +1,13 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { FC } from "react";
 
+const scrollData: { title: string; top: number }[] = [
+  { title: "About me", top: 600 },
+  { title: "Skils", top: 1100 },
+  { title: "Projects", top: 2000 },
+  { title: "Contact", top: document.body.scrollHeight - 1100 },
+];
+
 const NavbarMenu: FC = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
@@ -12,6 +19,13 @@ const NavbarMenu: FC = () => {
     m: 3,
     overflow: "hidden",
   };
+  const handleScroll = (top: number) => {
+    window.scroll({
+      top,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Box
       sx={{
@@ -20,53 +34,18 @@ const NavbarMenu: FC = () => {
         ...smallStyles,
       }}
     >
-      <Box className="menu_item">
-        <a href="#about-me">
+      {scrollData.map((item) => (
+        <Box className="menu_item" key={item.title}>
           <Typography
             color="primary"
             className="menu_item_text"
             variant="subtitle1"
+            onClick={() => handleScroll(item.top)}
           >
-            About me
+            {item.title}
           </Typography>
-        </a>
-      </Box>{" "}
-      <Box className="menu_item">
-        {" "}
-        <a href="#skills">
-          <Typography
-            color="primary"
-            className="menu_item_text"
-            variant="subtitle1"
-          >
-            Skils
-          </Typography>
-        </a>
-      </Box>{" "}
-      <Box className="menu_item">
-        {" "}
-        <a href="#projects">
-          <Typography
-            color="primary"
-            className="menu_item_text"
-            variant="subtitle1"
-          >
-            Projects
-          </Typography>
-        </a>
-      </Box>{" "}
-      <Box className="menu_item">
-        {" "}
-        <a href="#contact">
-          <Typography
-            color="primary"
-            className="menu_item_text"
-            variant="subtitle1"
-          >
-            Contact
-          </Typography>{" "}
-        </a>
-      </Box>{" "}
+        </Box>
+      ))}
     </Box>
   );
 };

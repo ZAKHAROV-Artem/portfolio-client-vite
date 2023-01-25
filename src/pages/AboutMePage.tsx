@@ -9,6 +9,7 @@ import Me3 from "../assets/img/me4.jpg";
 import { useTheme } from "@mui/system";
 import GoBack from "../components/UI/GoBack";
 import { Context } from "../main";
+import { Fade } from "react-awesome-reveal";
 
 function countAgeInYears(startDate: Date): number {
   const diffDate = new Date(Date.now() - startDate.getTime());
@@ -58,74 +59,78 @@ const AboutMePage: FC = () => {
               mb: 2,
             }}
           >
-            <img
-              src={Me}
-              alt=""
-              style={{
-                maxWidth: "100%",
-                maxHeight: "100%",
-                width: `${matches ? "180px" : "300px"}`,
-                height: "100%",
-                objectFit: "contain",
-              }}
-            />
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                rowGap: "10px",
-              }}
-            >
+            <Fade duration={2000}>
               <img
-                src={Me2}
+                src={Me}
                 alt=""
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
-                  width: `${matches ? "150px" : "200px"}`,
+                  width: `${matches ? "180px" : "300px"}`,
                   height: "100%",
                   objectFit: "contain",
                 }}
               />
-              <img
-                src={Me3}
-                alt=""
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  width: `${matches ? "150px" : "200px"}`,
-                  height: "100%",
-                  objectFit: "contain",
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  rowGap: "10px",
                 }}
-              />
-            </Box>
+              >
+                <img
+                  src={Me2}
+                  alt=""
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    width: `${matches ? "150px" : "200px"}`,
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                />
+                <img
+                  src={Me3}
+                  alt=""
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    width: `${matches ? "150px" : "200px"}`,
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
+            </Fade>
           </Grid>
 
           <Grid xs={12} md={6}>
-            <Typography variant="h6" component="div">
-              {app.aboutMeData?.attributes.text1}
-              <br />
-              <br />
-              {app.aboutMeData?.attributes.text2} Here is {reactWritingAge}{" "}
-              years, I'm already making sites on
-              <Typography
-                variant="h5"
-                component="p"
-                sx={{ color: "secondary.main" }}
-              >
-                {app.aboutMeData?.attributes.textHighlighted}
-              </Typography>
-            </Typography>{" "}
-            <Box>
-              <Typography variant="h5" sx={{ mt: 5 }}>
-                {app.aboutMeData?.attributes.hobbies.title}
-              </Typography>
-              {app.aboutMeData?.attributes.hobbies.hobbies.map((item) => (
-                <Typography key={item} variant="h6">
-                  {item}
+            <Fade duration={2000}>
+              <Typography variant="h6" component="div">
+                {app.aboutMeData?.attributes.text1}
+                <br />
+                <br />
+                {app.aboutMeData?.attributes.text2} Here is {reactWritingAge}{" "}
+                years, I'm already making sites on
+                <Typography
+                  variant="h5"
+                  component="p"
+                  sx={{ color: "secondary.main" }}
+                >
+                  {app.aboutMeData?.attributes.textHighlighted}
                 </Typography>
-              ))}
-            </Box>
+              </Typography>{" "}
+              <Box>
+                <Typography variant="h5" sx={{ mt: 5 }}>
+                  {app.aboutMeData?.attributes.hobbies.title}
+                </Typography>
+                {app.aboutMeData?.attributes.hobbies.hobbies.map((item) => (
+                  <Typography key={item} variant="h6">
+                    {item}
+                  </Typography>
+                ))}
+              </Box>
+            </Fade>
           </Grid>
         </Grid>
       </Container>

@@ -16,7 +16,10 @@ const Projects: FC = () => {
       <Grid container columnSpacing={2} rowSpacing={2} sx={{ mt: 5 }}>
         {app.projects.slice(0, 4).map((item, index) => (
           <Grid key={item.id} xs={12} md={6}>
-            <Fade direction={`${index % 2 === 0 ? "left" : "right"}`}>
+            <Fade
+              duration={1000}
+              direction={`${index % 2 === 0 ? "left" : "right"}`}
+            >
               <ProjectItem project={item} />
             </Fade>
           </Grid>

@@ -27,7 +27,7 @@ const AboutMe: FC = () => {
         </Fade>
       </Grid>
       <Grid xs={12} md={10}>
-        <Fade direction="up">
+        <Fade duration={1000}>
           <Typography variant="subtitle1" align="center">
             {app.mainPageData?.attributes.aboutMe.description}
           </Typography>

@@ -7,6 +7,7 @@ import { ISkillItem } from "../models/SkillTypes";
 import SkillItem from "../components/Skills/SkillItem";
 import GoBack from "./../components/UI/GoBack";
 import { Context } from "../main";
+import { Fade } from "react-awesome-reveal";
 
 const SkillsPage: FC = () => {
   const { app } = useContext(Context);
@@ -31,7 +32,9 @@ const SkillsPage: FC = () => {
             <GoBack text={"Skills"} />
           </Grid>
           <Grid xs={12} md={4}>
-            <SkillsAccordion setSkillItems={setSkillItems} />
+            <Fade duration={2500}>
+              <SkillsAccordion setSkillItems={setSkillItems} />
+            </Fade>
           </Grid>
           <Grid xs={12} md={8}>
             <Box

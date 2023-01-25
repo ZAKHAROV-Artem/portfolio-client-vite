@@ -16,6 +16,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import ProjectItem from "../components/ProjectItem";
 import GoBack from "../components/UI/GoBack";
 import { Context } from "../main";
+import { Fade } from "react-awesome-reveal";
 
 const ProjectsPage: FC = () => {
   useEffect(() => {
@@ -66,72 +67,82 @@ const ProjectsPage: FC = () => {
             <GoBack text={"Projects"} />
           </Grid>
           <Grid xs={12} md={4} sx={{ mb: 5 }}>
-            <FormLabel id="demo-radio-buttons-group-label">
-              Project type
-            </FormLabel>
-            <FormGroup
-              sx={{
-                display: { md: "flex", lg: "block" },
-                flexDirection: "row",
-              }}
-            >
-              <FormControlLabel
-                sx={{ width: "fit-content" }}
-                control={
-                  <Checkbox
-                    defaultChecked
-                    onChange={() => handleTypesChange("Simple layout")}
-                  />
-                }
-                label="Simple layout"
-              />
-              <FormControlLabel
-                sx={{ width: "fit-content" }}
-                control={
-                  <Checkbox
-                    onChange={() => handleTypesChange("Frontend with react")}
-                  />
-                }
-                label="Frontend with react"
-              />{" "}
-              <FormControlLabel
-                sx={{ width: "fit-content" }}
-                control={
-                  <Checkbox
-                    onChange={() =>
-                      handleTypesChange("Fullstack with react and express")
-                    }
-                  />
-                }
-                label="Fullstack with react and express"
-              />
-            </FormGroup>
-            <FormLabel id="demo-radio-buttons-group-label">Finished</FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue={""}
-              name="radio-buttons-group"
-              sx={{
-                display: { md: "flex", lg: "block" },
-                flexDirection: "row",
-              }}
-            >
-              <FormControlLabel
-                value={""}
-                control={<Radio onChange={() => handleFinishedChange(null)} />}
-                label="All"
-              />
-              <FormControlLabel
-                value={true}
-                control={<Radio onChange={() => handleFinishedChange(true)} />}
-                label="Finished"
-              />
-              <FormControlLabel
-                value={false}
-                control={<Radio onChange={() => handleFinishedChange(false)} />}
-                label="Not finished"
-              />
-            </RadioGroup>
+            <Fade duration={2000}>
+              <FormLabel id="demo-radio-buttons-group-label">
+                Project type
+              </FormLabel>
+              <FormGroup
+                sx={{
+                  display: { md: "flex", lg: "block" },
+                  flexDirection: "row",
+                }}
+              >
+                <FormControlLabel
+                  sx={{ width: "fit-content" }}
+                  control={
+                    <Checkbox
+                      defaultChecked
+                      onChange={() => handleTypesChange("Simple layout")}
+                    />
+                  }
+                  label="Simple layout"
+                />
+                <FormControlLabel
+                  sx={{ width: "fit-content" }}
+                  control={
+                    <Checkbox
+                      onChange={() => handleTypesChange("Frontend with react")}
+                    />
+                  }
+                  label="Frontend with react"
+                />{" "}
+                <FormControlLabel
+                  sx={{ width: "fit-content" }}
+                  control={
+                    <Checkbox
+                      onChange={() =>
+                        handleTypesChange("Fullstack with react and express")
+                      }
+                    />
+                  }
+                  label="Fullstack with react and express"
+                />
+              </FormGroup>
+              <FormLabel id="demo-radio-buttons-group-label">
+                Finished
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue={""}
+                name="radio-buttons-group"
+                sx={{
+                  display: { md: "flex", lg: "block" },
+                  flexDirection: "row",
+                }}
+              >
+                <FormControlLabel
+                  value={""}
+                  control={
+                    <Radio onChange={() => handleFinishedChange(null)} />
+                  }
+                  label="All"
+                />
+                <FormControlLabel
+                  value={true}
+                  control={
+                    <Radio onChange={() => handleFinishedChange(true)} />
+                  }
+                  label="Finished"
+                />
+                <FormControlLabel
+                  value={false}
+                  control={
+                    <Radio onChange={() => handleFinishedChange(false)} />
+                  }
+                  label="Not finished"
+                />
+              </RadioGroup>
+            </Fade>
           </Grid>
           <Grid
             xs={12}
@@ -143,15 +154,17 @@ const ProjectsPage: FC = () => {
               mb: 10,
             }}
           >
-            {projects.length ? (
-              projects.map((item) => (
-                <ProjectItem key={item.id} project={item} />
-              ))
-            ) : (
-              <Typography align="center">
-                There are no projects with these filters
-              </Typography>
-            )}
+            <Fade duration={2000}>
+              {projects.length ? (
+                projects.map((item) => (
+                  <ProjectItem key={item.id} project={item} />
+                ))
+              ) : (
+                <Typography align="center">
+                  There are no projects with these filters
+                </Typography>
+              )}
+            </Fade>
           </Grid>
         </Grid>
       </Container>
